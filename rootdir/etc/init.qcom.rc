@@ -212,6 +212,10 @@ on early-boot
     exec u:r:vendor_qti_init_shell:s0 -- /vendor/bin/init.qcom.early_boot.sh
     write /sys/module/subsystem_restart/parameters/disable_restart_work 0x0
 
+    # FPS Info
+    chown system graphics /sys/class/graphics/fb0/measured_fps
+    chmod 0666 /sys/class/graphics/fb0/measured_fps
+
     # for backward compatibility
     chown system system /persist/sensors
     chown system system /persist/sensors/registry
